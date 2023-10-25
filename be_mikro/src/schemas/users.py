@@ -2,6 +2,7 @@ from typing import Optional, List
 from uuid import UUID, uuid4
 from pydantic import BaseModel
 from enum import Enum
+from .recipes import Recipe
 
 
 class Role(str, Enum):
@@ -12,21 +13,6 @@ class Role(str, Enum):
 class Gender(str, Enum):
     male = "male"
     female = "female"
-
-
-class Ingredient(BaseModel):
-    name: str
-    serving_size: int
-    serving_unit: str
-    # should serving size be tup/dict?
-    protein: int
-    fat: int
-    carbs: int
-
-
-class Recipe(BaseModel):
-    name: str
-    ingredients: List[Ingredient]
 
 
 class User(BaseModel):
